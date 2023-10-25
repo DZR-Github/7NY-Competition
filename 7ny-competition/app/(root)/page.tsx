@@ -1,16 +1,15 @@
 "use client";
-
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignOutButton } from "@clerk/nextjs";
 import { Button } from "@mui/material";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
   return (
     <main>
       <div>
-        <UserButton afterSignOutUrl="/" />
-        <p>Home Page</p>
+        <p className="text-center text-[30px] font-extrabold">Home Page</p>
+        <Button variant="contained">
+          <SignOutButton>退出登陆</SignOutButton>
+        </Button>
       </div>
     </main>
   );
