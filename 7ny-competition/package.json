@@ -13,10 +13,12 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.14",
+    "axios": "^1.6.0",
     "dayjs": "^1.11.10",
     "mongodb": "^6.2.0",
     "mongoose": "^7.6.3",
     "next": "13.5.6",
+    "qiniu-js": "^3.4.1",
     "react": "^18",
     "react-dom": "^18"
   },
