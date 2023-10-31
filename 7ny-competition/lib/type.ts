@@ -2,6 +2,7 @@ export interface typeUser {
   username: string; //用户名
   userId: string; //用户ID
   headImg: string; //头像
+  bio: string; //个人简介
   collections: string[]; //收藏的视频videoId
   likes: string[]; //点赞的视频videoId
   follows: string[]; //关注作者userId

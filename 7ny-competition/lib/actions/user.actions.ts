@@ -10,6 +10,7 @@ interface createUserRes {
 export async function createUser({
   userId,
   username,
+  bio,
   headImg,
   collections,
   likes,
@@ -25,6 +26,7 @@ export async function createUser({
     await User.create({
       userId,
       username,
+      bio,
       isOnboarded,
       headImg,
       collections,
@@ -48,6 +50,7 @@ interface updateUserRes {
 export async function updateUser({
   userId,
   username,
+  bio,
   headImg,
   collections,
   likes,
@@ -64,6 +67,7 @@ export async function updateUser({
       { userId },
       {
         username,
+        bio,
         isOnboarded,
         headImg,
         collections,
