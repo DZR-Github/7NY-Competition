@@ -17,6 +17,9 @@ import { Button } from "@mui/material";
 import useUserId from "@/lib/hooks/useUserId";
 import { useEffect, useState } from "react";
 import Dayjs from "dayjs";
+import { deleteFile, getVideoUrl, uploadFile } from "../../lib/qiniu/qiniu";
+import NestedList from "../../components/siderbar";
+import DYmain from "../../components/dymain";
 
 export default function Home() {
   const { loading, userId } = useUserId();

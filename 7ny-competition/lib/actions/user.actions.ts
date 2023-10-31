@@ -101,3 +101,5 @@ export async function getUserMsg(userId: string): Promise<getUserMsgRes> {
     return { status: "fail", res: null };
   }
 }
+
+export type { getUserMsgRes };
