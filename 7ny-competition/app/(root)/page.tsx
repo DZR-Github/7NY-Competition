@@ -13,9 +13,9 @@ import {
 } from "@/lib/actions/video.actions";
 import { videoClassification } from "@/lib/type";
 import { SignOutButton } from "@clerk/nextjs";
-import { Button } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import useUserId from "@/lib/hooks/useUserId";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import Dayjs from "dayjs";
 import { deleteFile, getVideoUrl, uploadFile } from "../../lib/qiniu/qiniu";
 import NestedList from "../../components/siderbar";
@@ -24,6 +24,8 @@ import DYmain from "../../components/dymain";
 export default function Home() {
   const { loading, userId } = useUserId();
   const [id, setId] = useState(userId);
+  const [url, setUrl] = useState<string>();
+  const [file, setFile] = useState<FormData>();
 
   useEffect(() => {
     setId(userId);
@@ -122,6 +124,36 @@ export default function Home() {
     });
   };
 
+  const handleFileInput = (event: ChangeEvent<HTMLInputElement>) => {
+    const Files = event.target.files;
+    console.log(event.target.files);
+    const formData = new FormData();
+    Files && formData.append("image", Files[0]);
+    Files && setFile(formData);
+  };
+
+  const deleteFiles = () => {
+    deleteFile("images/upload_380ddd9d4f14504d34a9ab75a89f250f.mp4").then(
+      (res) => {
+        console.log(res);
+      }
+    );
+  };
+
+  const getOneVideoUrl = () => {
+    getVideoUrl("images/upload_380ddd9d4f14504d34a9ab75a89f250f.mp4").then(
+      (res) => {
+        setUrl(res.data);
+      }
+    );
+  };
+
+  useEffect(() => {}, [file]);
+
+  const upload = () => {
+    file && uploadFile(file);
+  };
+
   return (
     <main>
       <div>
@@ -137,7 +169,14 @@ export default function Home() {
         <Button onClick={DeleteComment}>deleteComment</Button>
         <Button onClick={getComments}>getComments</Button>
       </div>
-      <p></p>
+
+      <form>
+        <input type="file" id="uploadfile" onChange={handleFileInput} />
+      </form>
+      <Button onClick={upload}>上传文件</Button>
+      <Button onClick={deleteFiles}>删除文件</Button>
+      <Button onClick={getOneVideoUrl}>获取一个视频</Button>
+      {url && <video width={500} controls src={url}></video>}
     </main>
   );
 }
