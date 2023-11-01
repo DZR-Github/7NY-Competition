@@ -177,6 +177,11 @@ export default function Home() {
       <Button onClick={deleteFiles}>删除文件</Button>
       <Button onClick={getOneVideoUrl}>获取一个视频</Button>
       {url && <video width={500} controls src={url}></video>}
+
+      <div className="flex">
+        <NestedList />
+        <DYmain />
+      </div>
     </main>
   );
 }

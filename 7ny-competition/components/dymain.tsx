@@ -26,9 +26,9 @@ export default function DYmain() {
         console.log(error);
       });
   };
-  getAllVideos().then((res) => {
-    console.log(res);
-  });
+  // getAllVideos().then((res) => {
+  //   console.log(res);
+  // });
   return (
     <div className="m-auto">
       <Button onClick={CreateUser}>CreateUser</Button>

@@ -5,7 +5,7 @@ import { AlternateEmail, Numbers } from "@mui/icons-material";
 export default function Videomain() {
   return (
     <div className="flex-grow flex items-center justify-center bg-gray-50">
-      <div className="w-[700px] h-[600px] rounded-xl shadow bg-white p-7 flex items-center flex-col">
+      <div className="w-[700px] h-[580px] rounded-xl shadow bg-white p-7 flex items-center flex-col relative">
         {/* 上传视频 */}
         <div className="w-[600px] h-[300px] mb-[30px] border border-dashed rounded-md flex justify-center items-center flex-col">
           <div>
@@ -53,6 +53,10 @@ export default function Videomain() {
         </div>
         {/* 视频分类 */}
         <ControllableStates />
+
+        <div className="w-[60px] h-[30px] mt-[30px] rounded bg-rose-500 text-center leading-[29px] text-white absolute bottom-[25px] right-[50px]">
+          确认
+        </div>
       </div>
     </div>
   );
