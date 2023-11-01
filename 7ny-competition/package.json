@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^4.25.6",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.14.14",
     "axios": "^1.6.0",
     "dayjs": "^1.11.10",
